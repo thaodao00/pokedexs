@@ -3,7 +3,7 @@
 function getRandom(n) {
     return Math.round(Math.random() * (n - 1));
 }
-var currentLevel =1;
+var currentLevel =1
 function level() {
     currentLevel++;
     $('.level').html(currentLevel);
@@ -258,7 +258,7 @@ function startCountDown() {
     tmp = 355;
     $(".pokemon-body__right-time").css({'height': '355px', 'background-image': 'linear-gradient(red, yellow, green)'});
     time = setInterval('decTime()', 1000);
-    if(currentLevel==6){
+    if(currentLevel==1){
         tmp=150;
         $('.pokemon-body__right').css('height','150px')
         $(".pokemon-body__right-time").css({'height': '150px', 'background-image': 'linear-gradient(red, yellow, green)'});
