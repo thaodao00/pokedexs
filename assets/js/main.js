@@ -3,7 +3,7 @@
 function getRandom(n) {
     return Math.round(Math.random() * (n - 1));
 }
-var currentLevel =6;
+var currentLevel =1;
 function level() {
     currentLevel++;
     $('.level').html(currentLevel);
