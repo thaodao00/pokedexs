@@ -13,14 +13,14 @@ const nodeText =$('.text');
 function loadImg() {
     var arr = [];
     for (var i = 1; i <= 18; i++) {
-        arr.push('img/level'+currentLevel+'/icon' + i + '.png')
+        arr.push('assets/img/level'+currentLevel+'/icon' + i + '.png')
     }
     return arr;
 }
 function loadB() {
     var arr = [];
     for (var i = 1; i <= 14; i++) {
-        arr.push('img/background/b' + i + '.jpg')
+        arr.push('assets/img/background/b' + i + '.jpg')
     }
     return arr;
 }
@@ -61,7 +61,6 @@ function getNewMatrix() {
             }
         }
     }
-    console.log(a);
     return a;
 }
 //tao ma tran 9 * 16
@@ -77,11 +76,9 @@ function createMatrix(row, col) {
         }
     }
     $('.pokemon-body__center-icon').html(pikachuHtml);
-    // console.log(arr1)
     return arr1;
 }
 var arr = createMatrix(11, 18)
-console.log("arr: " + arr)
 // check;
 function checkLineX(y1, y2, x) {
     // find point have column max and min
@@ -122,10 +119,7 @@ function checkRectX(p1, p2) {
             && checkLineY(pMinY.x, pMaxY.x, y)
             && checkLineX(y, pMaxY.y, pMaxY.x)) {
 
-            console.log("Rect x");
-            console.log("(" + pMinY.x + "," + pMinY.y + ") -> ("
-                + pMinY.x + "," + y + ") -> (" + pMaxY.x + "," + y
-                + ") -> (" + pMaxY.x + "," + pMaxY.y + ")");
+          
             // if three line is true return column y
             return true;
         }
@@ -148,10 +142,7 @@ function checkRectY(p1, p2) {
             && checkLineX(pMinX.y, pMaxX.y, x)
             && checkLineY(x, pMaxX.x, pMaxX.y)) {
 
-            console.log("Rect y");
-            console.log("(" + pMinX.x + "," + pMinX.y + ") -> (" + x
-                + "," + pMinX.y + ") -> (" + x + "," + pMaxX.y
-                + ") -> (" + pMaxX.x + "," + pMaxX.y + ")");
+          
             return true;
         }
     }
@@ -183,10 +174,7 @@ function checkMoreLineX(p1, p2, type) {
         && arr[pMaxY.x][y] == 0) {
             if (checkLineY(pMinY.x, pMaxY.x, y)) {
 
-                console.log("TH X " + type);
-                console.log("(" + pMinY.x + "," + pMinY.y + ") -> ("
-                    + pMinY.x + "," + y + ") -> (" + pMaxY.x + "," + y
-                    + ") -> (" + pMaxY.x + "," + pMaxY.y + ")");
+               
                 return true;
             }
             y += type;
@@ -213,10 +201,7 @@ function checkMoreLineY(p1, p2, type) {
         while (arr[x][pMinX.y] == 0
         && arr[x][pMaxX.y] == 0) {
             if (checkLineX(pMinX.y, pMaxX.y, x)) {
-                console.log("TH Y " + type);
-                console.log("(" + pMinX.x + "," + pMinX.y + ") -> ("
-                    + x + "," + pMinX.y + ") -> (" + x + "," + pMaxX.y
-                    + ") -> (" + pMaxX.x + "," + pMaxX.y + ")");
+               
                 return true;
             }
             x += type;
@@ -283,7 +268,7 @@ function startCountDown() {
 function decTime() {
     tmp-=1;
     $(".pokemon-body__right-time").css({'height': tmp + "px"});
-    console.log(tmp)
+    
     if (tmp <= 0) {
         clearInterval(time);
         alert("ĐÃ HẾT THỜI GIAN");
@@ -341,9 +326,9 @@ function main() {
                     tmp+=4;
                     $('.pokemon-body__right').css('height',height)
                     height+=4;
-                    console.log("h:" + height)
+                 
                 }
-                console.log(true)
+              
                 score += 50
                 scores();
                 check.addClass('icon--hidden')
@@ -356,7 +341,6 @@ function main() {
                 if(currentLevel==5||currentLevel==4){
                     tmp -=10;
                 }
-                console.log(false);
             }
 
             check = null;
@@ -373,7 +357,7 @@ function createLevel() {
     main();
     scores();
 }
-$('button[z*="img/level5/icon1.png"]').attr('disabled','true');
+$('button[z*="assets/img/level5/icon1.png"]').attr('disabled','true');
 function checkWin(){
     var isFoundArr = false;
     if(currentLevel==1){
@@ -389,7 +373,7 @@ function checkWin(){
     else if(currentLevel==2){
         loop:for (var i = 1; i < arr.length - 1; i++) {
             for (var j = 1; j < arr[i].length - 1; j++) {
-                if (arr[i][j] == "img/level2/icon1.png") {
+                if (arr[i][j] == "assets/img/level2/icon1.png") {
                     isFoundArr = true;
                     break loop;
 
@@ -402,7 +386,7 @@ function checkWin(){
     else if(currentLevel==3){
         loop:for (var i = 1; i < arr.length - 1; i++) {
             for (var j = 1; j < arr[i].length - 1; j++) {
-                if (arr[i][j]!=0 && arr[i][j] != "img/level3/icon1.png") {
+                if (arr[i][j]!=0 && arr[i][j] != "assets/img/level3/icon1.png") {
                     isFoundArr = true;
                     break loop;
 
@@ -427,7 +411,7 @@ function checkWin(){
     else if(currentLevel==5){
         loop:for (var i = 1; i < arr.length - 1; i++) {
             for (var j = 1; j < arr[i].length - 1; j++) {
-                if (arr[i][j]!=0 && arr[i][j] != "img/level4/icon1.png") {
+                if (arr[i][j]!=0 && arr[i][j] != "assets/img/level4/icon1.png") {
                     isFoundArr = true;
                     break loop;
                 }
@@ -448,7 +432,6 @@ function checkWin(){
         }
     }
     if (!isFoundArr) {
-        // console.log("hi");
         if(currentLevel<6){
             level();
             arrImg = loadImg();
